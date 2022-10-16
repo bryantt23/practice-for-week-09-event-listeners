@@ -27,17 +27,20 @@ addEventListener('DOMContentLoaded', () => {
     section3.style.backgroundColor = e.target.value;
   }
 
-  redInput.addEventListener('change', e => changeBackgroundColor(e), true);
+  redInput.addEventListener('change', e => changeBackgroundColor(e));
   listAdd.addEventListener('change', e => {
     console.log(e.target.value);
   });
   addItem.addEventListener('click', addLi);
-  colorSelect.addEventListener('change', e => useColorSelect(e), true);
+  colorSelect.addEventListener('change', e => useColorSelect(e));
 
   removeListeners.addEventListener('click', () => {
     console.log('remove event listeners');
-    redInput.removeEventListener('change', changeBackgroundColor, true);
-    addItem.removeEventListener('click', addLi);
-    colorSelect.removeEventListener('change', useColorSelect, true);
+    // https://stackoverflow.com/questions/4386300/javascript-dom-how-to-remove-all-event-listeners-of-a-dom-object
+    document.querySelector('body').outerHTML =
+      document.querySelector('body').outerHTML;
+    // redInput.removeEventListener('change', changeBackgroundColor);
+    // addItem.removeEventListener('click', addLi);
+    // colorSelect.removeEventListener('change', useColorSelect);
   });
 });
