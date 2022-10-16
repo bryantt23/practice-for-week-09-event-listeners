@@ -5,8 +5,9 @@ addEventListener('DOMContentLoaded', () => {
   const addItem = document.querySelector('#add-item');
   const ul = document.querySelector('ul');
   const listAdd = document.querySelector('#list-add');
+  const section3 = document.querySelector('#section-3');
+  const colorSelect = document.querySelector('#color-select');
 
-  //   debugger;
   redInput.addEventListener('change', e => {
     console.log(e.target.value);
     if (e.target.value.indexOf('red') > -1) {
@@ -23,5 +24,8 @@ addEventListener('DOMContentLoaded', () => {
 
     li.textContent = listAdd.value;
     ul.appendChild(li);
+  });
+  colorSelect.addEventListener('change', e => {
+    section3.style.backgroundColor = e.target.value;
   });
 });
